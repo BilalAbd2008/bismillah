@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/bghome">
+
+        <!-- Bagian untuk Logo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="333dp"
+                android:layout_height="158dp"
+                android:src="@drawable/logoputih"
+                android:layout_gravity="center"
+                android:layout_marginTop="-30dp" />
+        </LinearLayout>
+
+        <!-- Layout Konten di Bawah Logo -->
+        <!-- Bagian Header (Profile, Welcome Text, dan Notifikasi) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profil"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Profile Image" />
+
+            <TextView
+                android:id="@+id/txtWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hai, [Nama Pengguna]"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imgNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notifikasi"
+                android:contentDescription="Notification Icon" />
+        </LinearLayout>
+
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="  Cari di iQuarium"
+            android:fontFamily="@font/popinmedium"
+            android:drawableStart="@drawable/search"
+            android:background="@drawable/backsearch"
+            android:padding="10dp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Fitur Unggulan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/featuredText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fitur Unggulan"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/popinbold"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/viewAllFeatured"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat Semua"
+                android:textColor="@color/biru"
+                android:fontFamily="@font/popinbold"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/box"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:elevation="4dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/boxkecil"
+                android:contentDescription="Fish Icon"
+                android:padding="8dp"
+                android:src="@drawable/ikanputih" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/featuredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FishPedia"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/featuredSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popinmedium"
+                    android:text="Temukan Informasi terkait Ikan Hias dari penjual ikan di Seluruh Indonesia"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="7dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnGoToFishPedia"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/panahkanan"
+                android:contentDescription="Arrow Icon" />
+        </LinearLayout>
+
+        <!-- Card untuk Pelatihan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mau Nyoba Budidaya Ikan?"
+                android:layout_weight="0.5"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewAllTraining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat Semua"
+                android:textStyle="bold"
+                android:textColor="@color/biru"
+                android:layout_weight="0.5"
+                android:gravity="end"/>
+        </LinearLayout>
+
+        <!-- Card untuk Ikan Hias -->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="297dp"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cari Tahu Tentang Ikan Hias!"
+                android:layout_weight="0.5"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewAllFish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat Semua"
+                android:textStyle="bold"
+                android:textColor="@color/biru"
+                android:layout_weight="0.5"
+                android:gravity="end"/>
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerFish"
+            android:layout_width="wrap_content"
+            android:layout_height="297dp"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never" />
+
+    </LinearLayout>
+</ScrollView>

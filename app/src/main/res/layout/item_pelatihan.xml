@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="8dp">
+
+    <!-- First CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="0dp"
+        android:layout_height="270dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/trainingImage1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tes1"
+                 />
+
+            <!-- Title TextView -->
+            <TextView
+                android:id="@+id/trainingTitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:fontFamily="@font/popinbold"
+                android:text="Pelatihan Budidaya Ikan"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <!-- Price TextView -->
+            <TextView
+                android:id="@+id/trainingPrice1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Rp 320.000"
+                android:fontFamily="@font/popinbold"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_green_dark" />
+
+            <!-- Spacer untuk mendorong tombol ke bawah -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Detail Button -->
+            <Button
+                android:id="@+id/registerButton1"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/biru"
+                android:fontFamily="@font/popinmedium"
+                android:text="Detail Pelatihan"
+                android:textSize="12sp"
+                android:padding="6dp"
+                app:rippleColor="#BFBFBF" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Second CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="270dp"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- ImageView -->
+            <ImageView
+                android:id="@+id/trainingImage2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tes2"
+                 />
+
+            <!-- Title TextView -->
+            <TextView
+                android:id="@+id/trainingTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Pelatihan Pemasaran Online"
+                android:fontFamily="@font/popinbold"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <!-- Price TextView -->
+            <TextView
+                android:id="@+id/trainingPrice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Rp 350.000"
+                android:fontFamily="@font/popinbold"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_green_dark" />
+
+            <!-- Spacer untuk mendorong tombol ke bawah -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Detail Button -->
+            <Button
+                android:id="@+id/registerButton2"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/biru"
+                android:text="Detail Pelatihan"
+                android:fontFamily="@font/popinmedium"
+                android:textSize="12sp"
+                android:padding="6dp"
+                app:rippleColor="#BFBFBF" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

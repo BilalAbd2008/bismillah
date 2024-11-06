@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
+
+        android:layout_marginBottom="80dp"> <!-- Beri ruang untuk tombol bawah -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <!-- Tombol Kembali -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/balikkecil"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Kembali"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="start" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail Pelatihan"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/popinbold"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Image Pelatihan -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+            <ImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tes2"
+                android:contentDescription="detail_image_desc" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Judul Pelatihan -->
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popinbold"
+            android:text="Detail Title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <!-- Harga Pelatihan -->
+        <TextView
+            android:id="@+id/Detailsdeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popinmedium"
+            android:text="Deskripsi produk..."
+            android:textSize="16sp"
+            android:layout_marginTop="12dp" />
+
+
+        <!-- Tambahkan detail lain sesuai kebutuhan -->
+
+    </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+    <!-- Harga Produk -->
+    <TextView
+        android:id="@+id/detailPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 50.000"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_gravity="start"
+        android:fontFamily="@font/popinbold"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <!-- Button Beli Sekarang -->
+        <Button
+            android:id="@+id/pesanButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Beli"
+            android:background="@drawable/beliback"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/biru"
+            />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

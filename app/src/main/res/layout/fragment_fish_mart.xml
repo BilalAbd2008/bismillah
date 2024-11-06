@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Toolbar untuk halaman -->
+        <!-- Toolbar untuk halaman -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/balikkecil"
+                    android:layout_marginRight="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Kembali" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FishMart"
+                    android:fontFamily="@font/popinbold"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical" />
+
+                <!-- Ikon-ikon di sebelah kanan -->
+                <ImageButton
+                    android:id="@+id/cartButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/keranjang"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Keranjang"
+                    android:layout_marginStart="10dp" />
+
+                <ImageButton
+                    android:id="@+id/chatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/chat"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Chat"
+                    android:layout_marginStart="15dp" />
+
+                <ImageButton
+                    android:id="@+id/notificationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/notifikasiputih"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Notifikasi"
+                    android:layout_marginStart="16dp" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+        <!-- Search bar -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="  Cari di iQuarium"
+            android:fontFamily="@font/popinmedium"
+            android:drawableStart="@drawable/search"
+            android:background="@drawable/backsearch"
+            android:padding="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Promo CardView -->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/promoViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:layout_marginBottom="16dp" />
+
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <!-- Kategori 1 -->
+                <LinearLayout
+                    android:id="@+id/categoryFilterAir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kategori1"
+                        android:contentDescription="Filter Air" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Filter Air"
+                        android:fontFamily="@font/popinmedium"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Kategori 2 -->
+                <LinearLayout
+                    android:id="@+id/categoryPeletIkan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kategori2"
+                        android:contentDescription="Pelet Ikan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pelet Ikan"
+                        android:fontFamily="@font/popinmedium"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Kategori 3 -->
+                <LinearLayout
+                    android:id="@+id/categoryTanamanHias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kategori3"
+                        android:contentDescription="Tanaman Hias" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanaman Hias"
+                        android:fontFamily="@font/popinmedium"
+                        android:gravity="center"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Kategori 4 -->
+                <LinearLayout
+                    android:id="@+id/categoryBatuCoral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kategori4"
+                        android:contentDescription="Batu Coral" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batu Coral"
+                        android:gravity="center"
+                        android:fontFamily="@font/popinmedium"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Kategori 5 -->
+                <LinearLayout
+                    android:id="@+id/categoryAquascape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kategori5"
+                        android:contentDescription="Aquascape" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aquascape"
+                        android:fontFamily="@font/popinmedium"
+                        android:gravity="center"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Kategori 1: Filter Air -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter Air"
+            android:fontFamily="@font/popinbold"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerFilterAir"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:padding="8dp" />
+
+        <!-- Kategori 2: Pelet Ikan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pelet Ikan"
+            android:fontFamily="@font/popinbold"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerPeletIkan"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:padding="8dp" />
+
+        <!-- Kategori 3: Tanaman Hias -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanaman Hias"
+            android:fontFamily="@font/popinbold"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerTanamanHias"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:padding="8dp" />
+
+        <!-- Kategori 4: Batu Coral -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batu Coral"
+            android:fontFamily="@font/popinbold"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerBatuCoral"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:padding="8dp" />
+
+        <!-- Kategori 5: Aquascape -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aquascape"
+            android:fontFamily="@font/popinbold"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerAquascape"
+            android:layout_width="match_parent"
+            android:layout_height="270dp" />
+
+    </LinearLayout>
+</ScrollView>

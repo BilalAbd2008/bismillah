@@ -1,0 +1,5 @@
+<!-- shape_badge.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/biru" />
+    <corners android:radius="10dp" />
+</shape>

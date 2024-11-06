@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="biru">#1F69CB</color>
+    <color name="colorInactiveDot">#A9A9A9</color>
+    <color name="colorActiveDot">#FFFFFF</color>
+    -- Your primary color -->
+    <color name="nav_item_color">#E0DADA</color>
+
+
+</resources>
+

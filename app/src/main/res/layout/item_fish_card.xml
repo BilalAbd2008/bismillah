@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- CardView 1 (Ikan Koi) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fishCard1"
+        android:layout_width="20dp"
+        android:layout_height="270dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="4dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Image of the Fish 1 -->
+
+            <!-- Overlay semi-transparan di bagian bawah -->
+            <ImageView
+                android:id="@+id/fishImage1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/koi" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_gravity="bottom"
+                android:background="#AA000000"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <!-- Name of the Fish 1 -->
+                <TextView
+                    android:id="@+id/fishName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popinbold"
+                    android:text="Ikan Koi"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Category of the Fish 1 -->
+                <TextView
+                    android:id="@+id/fishCategory1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Air Tawar"
+                    android:fontFamily="@font/popinmedium"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Badge for Popular/Trending 1 -->
+            <TextView
+                android:id="@+id/badge1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:background="@drawable/shape_badge"
+                android:fontFamily="@font/popinmedium"
+                android:text="Sedang Tren"
+                android:textColor="@android:color/white"
+                android:padding="4dp"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_margin="10dp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CardView 2 (Neon Tetra) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fishCard2"
+        android:layout_width="20dp"
+        android:layout_height="270dp"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="4dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Image of the Fish 2 -->
+            <ImageView
+                android:id="@+id/fishImage2"
+                android:layout_width="179dp"
+                android:adjustViewBounds="true"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/neontetra" />
+
+            <!-- Overlay semi-transparan di bagian bawah -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_gravity="bottom"
+                android:background="#AA000000"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <!-- Name of the Fish 2 -->
+                <TextView
+                    android:id="@+id/fishName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popinbold"
+                    android:text="Neon Tetra"
+                    android:textColor="@android:color/white"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <!-- Category of the Fish 2 -->
+                <TextView
+                    android:id="@+id/fishCategory2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popinmedium"
+                    android:text="Air Laut"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Badge for Popular/Trending 2 -->
+            <TextView
+                android:id="@+id/badge2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_badge"
+                android:fontFamily="@font/popinmedium"
+                android:padding="4dp"
+                android:text="Paling Laris"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

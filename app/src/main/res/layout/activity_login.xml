@@ -1,0 +1,127 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/bglogin">
+
+    <!-- Title Text aligned to the left -->
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="-20dp"
+        android:fontFamily="@font/popinbold"
+        android:gravity="start"
+        android:text="Selamat Datang Kembali,"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/popinbold"
+        android:gravity="start"
+        android:text="Log In!"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email_input"
+        android:fontFamily="@font/popinmedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/rounded_edittext"
+        android:padding="15dp"
+        android:textColorHint="@color/white"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Password Input Field with visibility toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_edittext"
+        android:padding="15dp"
+        android:layout_marginTop="16dp"> <!-- Add margin for spacing between fields -->
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popinmedium"
+            android:layout_weight="1"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:background="@null"
+            android:textColorHint="@color/white"/>
+
+        <ImageButton
+            android:id="@+id/password_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/passtogel"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/popinbold"
+        android:backgroundTint="@color/white"
+        android:text="Mulai"
+        android:textColor="@color/biru"
+        android:textSize="20sp"/>
+
+    <!-- Google and Facebook Login Options -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/google_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/google"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageButton
+            android:id="@+id/facebook_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/facebook"/>
+    </LinearLayout>
+
+    <!-- Register Text centered at the bottom -->
+    <TextView
+        android:id="@+id/register_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Belum punya akun? Daftar"
+        android:fontFamily="@font/popinmedium"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

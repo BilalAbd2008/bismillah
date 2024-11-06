@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="4dp" /> <!-- Sesuaikan radius sesuai kebutuhan -->
+    <solid android:color="@color/biru" /> <!-- Pastikan warna biru didefinisikan di colors.xml -->
+</shape>

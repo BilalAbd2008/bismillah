@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Bismillah" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/biru</item>
+
+        <!-- Tambahkan style untuk BottomNavigationView -->
+        <item name="bottomNavigationStyle">@style/BottomNavViewStyle</item>
+    </style>
+
+    <style name="Theme.Bismillah" parent="Base.Theme.Bismillah" />
+
+    <!-- Style untuk BottomNavigationView -->
+    <style name="BottomNavViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemBackground">@null</item> <!-- Menghilangkan background pada item aktif -->
+        <item name="itemRippleColor">@null</item> <!-- Menonaktifkan ripple effect -->
+    </style>
+</resources>
