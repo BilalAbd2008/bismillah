@@ -48,15 +48,17 @@
                 android:layout_marginEnd="8dp"
                 android:contentDescription="Profile Image" />
 
+
+
             <TextView
                 android:id="@+id/txtWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hai, [Nama Pengguna]"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_weight="1" />
+                android:fontFamily="@font/popinbold"
+                android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/imgNotification"
@@ -65,6 +67,7 @@
                 android:src="@drawable/notifikasi"
                 android:contentDescription="Notification Icon" />
         </LinearLayout>
+        <!-- Welcome Text -->
 
         <!-- Search Bar -->
         <EditText
@@ -95,14 +98,7 @@
                 android:fontFamily="@font/popinbold"
                 android:layout_weight="1"/>
 
-            <TextView
-                android:id="@+id/viewAllFeatured"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lihat Semua"
-                android:textColor="@color/biru"
-                android:fontFamily="@font/popinbold"
-                android:textStyle="bold"/>
+
         </LinearLayout>
 
         <LinearLayout

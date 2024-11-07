@@ -18,6 +18,8 @@ import com.example.bismillah.network.ApiService;
 import com.example.bismillah.network.RetrofitClient;
 import com.example.bismillah.models.UserResponse;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,7 +93,7 @@ public class Setting extends AppCompatActivity {
                         Toast.makeText(Setting.this, "Sesi telah berakhir", Toast.LENGTH_SHORT).show();
                         goToLogin();
                     } else {
-                        Toast.makeText(Setting.this, "Gagal memuat data: " + response.message(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Setting.this,  response.message(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -109,29 +111,61 @@ public class Setting extends AppCompatActivity {
         String email = edtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
         String authToken = getToken();
-
+        String userId = getUserId();
+    
+        android.util.Log.d("UpdateProfile", "Attempting update with:");
+        android.util.Log.d("UpdateProfile", "Token: " + authToken);
+        android.util.Log.d("UpdateProfile", "UserId: " + userId);
+        
+        if (authToken == null || userId == null) {
+            Toast.makeText(this, "Terjadi kesalahan autentikasi", Toast.LENGTH_SHORT).show();
+            goToLogin();
+            return;
+        }
+    
         if (name.isEmpty() || username.isEmpty() || email.isEmpty()) {
             Toast.makeText(this, "Mohon lengkapi data", Toast.LENGTH_SHORT).show();
             return;
         }
+    
 
         UpdateRequest request = new UpdateRequest(name, username, email, password);
-
         Call<UpdateResponse> call = apiService.updateUser(userId, request, "Bearer " + authToken);
+        
         call.enqueue(new Callback<UpdateResponse>() {
             @Override
             public void onResponse(Call<UpdateResponse> call, Response<UpdateResponse> response) {
+
+                android.util.Log.d("UpdateProfile", "Response Code: " + response.code());
+                
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(Setting.this, "Profil berhasil diperbarui", Toast.LENGTH_SHORT).show();
-                    loadUserData();
-                    edtPassword.setText("");
+                    UpdateResponse updateResponse = response.body();
+                    if (updateResponse.isSuccess()) {
+                        Toast.makeText(Setting.this, updateResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        loadUserData(); // Refresh data
+                        edtPassword.setText(""); // Clear password field
+                    } else {
+                        Toast.makeText(Setting.this,
+                            updateResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(Setting.this, "Gagal memperbarui profil: " + response.message(), Toast.LENGTH_SHORT).show();
+                    try {
+                        String errorBody = response.errorBody() != null ? 
+                            response.errorBody().string() : "Unknown error";
+                        android.util.Log.e("UpdateProfile", "Error Body: " + errorBody);
+                        Toast.makeText(Setting.this,
+                            errorBody, Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        Toast.makeText(Setting.this,
+                            response.message(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-
+    
             @Override
             public void onFailure(Call<UpdateResponse> call, Throwable t) {
+
+                android.util.Log.e("UpdateProfile", "Network Error", t);
                 Toast.makeText(Setting.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -147,32 +181,62 @@ public class Setting extends AppCompatActivity {
     private void showDeleteConfirmation() {
         new AlertDialog.Builder(this)
                 .setTitle("Hapus Akun")
-                .setMessage("Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.")
-                .setPositiveButton("Ya", (dialog, which) -> deleteAccount())
+                .setMessage("Anda yakin ingin menghapus akun?")
+                .setPositiveButton("Ya", (dialog, which) -> {
+                    // Tampilkan loading dialog
+                    
+                            
+                    deleteAccount();
+                })
                 .setNegativeButton("Tidak", null)
                 .show();
     }
 
     private void deleteAccount() {
         String authToken = getToken();
+        String userId = getUserId();
+        
+        android.util.Log.d("DeleteAccount", "Attempting delete with:");
+        android.util.Log.d("DeleteAccount", "Token: " + authToken);
+        android.util.Log.d("DeleteAccount", "UserId: " + userId);
+        
+        if (authToken == null || userId == null) {
+            Toast.makeText(this, "Terjadi kesalahan autentikasi", Toast.LENGTH_SHORT).show();
+            goToLogin();
+            return;
+        }
+    
         Call<Void> call = apiService.deleteUser(userId, "Bearer " + authToken);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                android.util.Log.d("DeleteAccount", "Response Code: " + response.code());
+                
                 if (response.isSuccessful()) {
+                    android.util.Log.d("DeleteAccount", "Delete successful");
+                    clearUserData(); // Sekarang method ini sudah tersedia
                     Toast.makeText(Setting.this, "Akun berhasil dihapus", Toast.LENGTH_SHORT).show();
                     goToLogin();
                 } else {
-                    Toast.makeText(Setting.this, "Gagal menghapus akun: " + response.message(), Toast.LENGTH_SHORT).show();
+                    try {
+                        String errorBody = response.errorBody() != null ? response.errorBody().string() : "Unknown error";
+                        android.util.Log.e("DeleteAccount", "Error Body: " + errorBody);
+                        Toast.makeText(Setting.this, "Gagal menghapus akun: " + errorBody, Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        android.util.Log.e("DeleteAccount", "Error reading error body", e);
+                        Toast.makeText(Setting.this, "Gagal menghapus akun: " + response.message(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-
+    
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(Setting.this, "Gagal menghapus akun: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                android.util.Log.e("DeleteAccount", "Network Error", t);
+                Toast.makeText(Setting.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+    
 
     private void goToLogin() {
         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
@@ -214,5 +278,12 @@ public class Setting extends AppCompatActivity {
         String token = sharedPreferences.getString("authToken", null);
         String userId = sharedPreferences.getString("userId", null);
         return token != null && userId != null;
+    }
+
+    private void clearUserData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
     }
 }

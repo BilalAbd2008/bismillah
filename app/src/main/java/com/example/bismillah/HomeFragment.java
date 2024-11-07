@@ -21,8 +21,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.bismillah.models.UserResponse;
+import com.example.bismillah.network.ApiService;
+import com.example.bismillah.network.RetrofitClient;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
@@ -34,6 +42,7 @@ public class HomeFragment extends Fragment {
     private ActionBar actionBar;
     private List<TrainingModel> trainingList;
     private List<FishModel> fishList;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +61,7 @@ public class HomeFragment extends Fragment {
         viewPagerFish = view.findViewById(R.id.viewPagerFish);
 
         // Set dynamic user name (e.g., from database)
-        txtWelcome.setText("Hai, [Nama Pengguna]");
+        loadUsername();
 
         // Profile click event to show popup menu
         imgProfile.setOnClickListener(this::showProfilePopup);
@@ -94,6 +103,56 @@ public class HomeFragment extends Fragment {
         fishList.add(new FishModel("Ikan Lele", R.drawable.koi, "Air Tawar", true));
         fishList.add(new FishModel("Ikan Guppy", R.drawable.neontetra, "Air Laut", false));
         // Tambahkan kategori dan trending
+    }
+
+    private void loadUsername() {
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("userId", null);
+        String token = sharedPreferences.getString("authToken", null);
+
+        if (userId != null && token != null) {
+            ApiService apiService = RetrofitClient.getApiService(token);
+            Call<UserResponse> call = apiService.getUser(userId, "Bearer " + token);
+            call.enqueue(new Callback<UserResponse>() {
+                @Override
+                public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                    if (isAdded() && getActivity() != null) {  // Cek apakah Fragment masih attached
+                        if (response.isSuccessful() && response.body() != null) {
+                            UserResponse userResponse = response.body();
+                            if (userResponse.isSuccess() && userResponse.getData() != null) {
+                                String username = userResponse.getData().getUsername();
+                                txtWelcome.setText("Hai, " + username);
+                                // Debug
+                                
+                            } else {
+                                txtWelcome.setText("Hai, Pengguna");
+                                // Debug
+                                Toast.makeText(getActivity(), "User data null", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            txtWelcome.setText("Hai, Pengguna");
+                            // Debug
+                            Toast.makeText(getActivity(), "Response not successful: " + response.code(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<UserResponse> call, Throwable t) {
+                    if (isAdded() && getActivity() != null) {
+                        txtWelcome.setText("Hai, Pengguna");
+                        // Debug
+                        Toast.makeText(getActivity(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            txtWelcome.setText("Hai, Pengguna");
+            // Debug
+            Toast.makeText(requireActivity(), "Token atau UserId null", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     private void setupViewPagers() {

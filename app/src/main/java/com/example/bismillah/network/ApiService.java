@@ -34,14 +34,14 @@ public interface ApiService {
 
     @PUT("formuser/{id}")
     Call<UpdateResponse> updateUser(
-            @Path("userId") String userId,
+            @Path("id") String userId,
             @Body UpdateRequest request,
             @Header("Authorization") String authToken
     );
 
     @DELETE("formuser/{id}")
     Call<Void> deleteUser(
-            @Path("userId") String userId,
+            @Path("id") String userId,
             @Header("Authorization") String authToken
     );
 }

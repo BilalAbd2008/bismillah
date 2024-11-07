@@ -31,7 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FishPedia"
-                android:textSize="20sp"
+                android:fontFamily="@font/popinbold"
+                android:layout_marginTop="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />
         </androidx.appcompat.widget.Toolbar>
@@ -199,87 +201,92 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-
-        <!-- Popular Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Air Tawar"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+            android:fontFamily="@font/popinbold"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="4dp"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerAirTawar"
-            android:layout_width="wrap_content"
-            android:layout_height="297dp"
-            android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/airTawarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingHorizontal="4dp"/>
+        <!-- Popular Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Air Laut"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+            android:fontFamily="@font/popinbold"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginBottom="8dp"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerAirLaut"
-            android:layout_width="wrap_content"
-            android:layout_height="297dp"
-            android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/airLautRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
 
+        <!-- Cupang Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Koi"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:text="koi"
+            android:textSize="15sp"
+            android:fontFamily="@font/popinbold"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginBottom="8dp"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerKoi"
-            android:layout_width="wrap_content"
-            android:layout_height="297dp"
-            android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/koiRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cupang"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+            android:fontFamily="@font/popinbold"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginBottom="8dp"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerCupang"
-            android:layout_width="wrap_content"
-            android:layout_height="297dp"
-            android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cupangRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Gabus"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+            android:fontFamily="@font/popinbold"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginBottom="8dp"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerGabus"
-            android:layout_width="wrap_content"
-            android:layout_height="297dp"
-            android:layout_marginTop="8dp"
-            android:overScrollMode="never" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gabusRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
 
     </LinearLayout>
 </ScrollView>

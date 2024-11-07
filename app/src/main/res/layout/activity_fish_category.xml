@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/balikkecil"
             android:background="?attr/selectableItemBackground"
+            android:layout_marginRight="10dp"
             android:contentDescription="Kembali" />
 
         <TextView
@@ -28,6 +29,8 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:fontFamily="@font/popinbold"
+            android:layout_marginTop="18dp"
             android:textColor="@android:color/black"
             android:layout_marginStart="16dp" />
     </androidx.appcompat.widget.Toolbar>

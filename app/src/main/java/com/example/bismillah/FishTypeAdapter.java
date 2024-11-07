@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class FishTypeAdapter extends RecyclerView.Adapter<FishTypeAdapter.FishViewHolder> {
-
     private List<FishType> fishList;
     private Context context;
 
@@ -32,34 +32,67 @@ public class FishTypeAdapter extends RecyclerView.Adapter<FishTypeAdapter.FishVi
 
     @Override
     public void onBindViewHolder(@NonNull FishViewHolder holder, int position) {
-        FishType fish = fishList.get(position);
-        holder.fishName.setText(fish.getName());
-        holder.fishCategory.setText(fish.getCategory());
-        holder.fishImage.setImageResource(fish.getImageResId());
+        // Get fish data for left card
+        int leftIndex = position * 2;
+        if (leftIndex < fishList.size()) {
+            FishType leftFish = fishList.get(leftIndex);
+            holder.fishNameLeft.setText(leftFish.getName());
+            holder.fishCategoryLeft.setText(leftFish.getCategory());
+            holder.fishImageLeft.setImageResource(leftFish.getImageResId());
+            holder.cardViewLeft.setVisibility(View.VISIBLE);
+            
+            holder.cardViewLeft.setOnClickListener(v -> {
+                Intent intent = new Intent(context, FishDetailActivity.class);
+                intent.putExtra("fishName", leftFish.getName());
+                intent.putExtra("imageResId", leftFish.getImageResId());
+                context.startActivity(intent);
+            });
+        } else {
+            holder.cardViewLeft.setVisibility(View.GONE);
+        }
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, FishDetailActivity.class);
-            intent.putExtra("fishName", fish.getName());
-            intent.putExtra("imageResId", fish.getImageResId());
-            // Add other fish details if needed
-            context.startActivity(intent);
-        });
+        // Get fish data for right card
+        int rightIndex = leftIndex + 1;
+        if (rightIndex < fishList.size()) {
+            FishType rightFish = fishList.get(rightIndex);
+            holder.fishNameRight.setText(rightFish.getName());
+            holder.fishCategoryRight.setText(rightFish.getCategory());
+            holder.fishImageRight.setImageResource(rightFish.getImageResId());
+            holder.cardViewRight.setVisibility(View.VISIBLE);
+            
+            holder.cardViewRight.setOnClickListener(v -> {
+                Intent intent = new Intent(context, FishDetailActivity.class);
+                intent.putExtra("fishName", rightFish.getName());
+                intent.putExtra("imageResId", rightFish.getImageResId());
+                context.startActivity(intent);
+            });
+        } else {
+            holder.cardViewRight.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return fishList.size();
+        return (fishList.size() + 1) / 2;
     }
 
     public static class FishViewHolder extends RecyclerView.ViewHolder {
-        TextView fishName, fishCategory;
-        ImageView fishImage;
+        TextView fishNameLeft, fishCategoryLeft;
+        TextView fishNameRight, fishCategoryRight;
+        ImageView fishImageLeft, fishImageRight;
+        CardView cardViewLeft, cardViewRight;
 
         public FishViewHolder(@NonNull View itemView) {
             super(itemView);
-            fishName = itemView.findViewById(R.id.fishName);
-            fishCategory = itemView.findViewById(R.id.fishCategory);
-            fishImage = itemView.findViewById(R.id.fishImage);
+            fishNameLeft = itemView.findViewById(R.id.fishNameLeft);
+            fishCategoryLeft = itemView.findViewById(R.id.fishCategoryLeft);
+            fishImageLeft = itemView.findViewById(R.id.fishImageLeft);
+            cardViewLeft = itemView.findViewById(R.id.cardViewLeft);
+
+            fishNameRight = itemView.findViewById(R.id.fishNameRight);
+            fishCategoryRight = itemView.findViewById(R.id.fishCategoryRight);
+            fishImageRight = itemView.findViewById(R.id.fishImageRight);
+            cardViewRight = itemView.findViewById(R.id.cardViewRight);
         }
     }
 }
